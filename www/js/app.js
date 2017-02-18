@@ -103,9 +103,10 @@ var app = angular.module('starter', ['ionic', 'firebase', 'ionic.contrib.ui.tind
 
           uid: function(Auth) {
             return Auth.requireAuth()
-              .then(function(auth) {
-                return auth.uid;
-              });
+            .then(function(auth) {
+              Auth.setOnline(auth.uid);
+              return auth.uid;
+      });
           }
         }
       }
